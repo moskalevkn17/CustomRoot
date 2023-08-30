@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "CustomRoot.Desktop": {
+      "commandName": "Project"
+    }
+  }
+}

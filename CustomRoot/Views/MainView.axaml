@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:CustomRoot.ViewModels"
+			 xmlns:views="using:CustomRoot.Views"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CustomRoot.Views.MainView"
+             x:DataType="vm:MainViewModel">
+
+	<StackPanel>
+		<StackPanel.Styles>
+			<Style Selector=":is(ListBox)">
+				<Setter Property="Background" Value="Blue"/>
+				<Setter Property="MinWidth" Value="10"/>
+				<Setter Property="MinHeight" Value="3"/>
+			</Style>
+		</StackPanel.Styles>
+		
+		<ListBox Background="Red"/> <!--Empty but visible after styling-->
+		<ListBox> <!--Works!-->
+			<ListBox.Items>
+				<ListBoxItem>Just a control</ListBoxItem>
+			</ListBox.Items>
+		</ListBox>
+	    <views:RenamedXAML/> <!--Just a string =\-->
+		<views:RenamedXAMLItems/> <!-- Not working Commented -->
+		<views:RenamedCS/> <!--Invisible and cannot use props in XAML-->
+		<views:RenamedBoth/> <!--Invisible, but can use props-->
+		<views:RenamedBothDescendant/> <!--Need override controlTemplate to show-->
+		<views:AgainDescendant/> <!--Now it works! 🤔-->
+	</StackPanel>
+</UserControl>
